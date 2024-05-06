@@ -39,10 +39,7 @@ export const rotateR = <T>(matrix: T[][]) => {
 }
 
 export const refrectX = <T>(matrix: T[][]) => {
-  const refrected = matrix.map((row) => {
-    return row.toReversed()
-  })
-  return refrected
+  return matrix.toReversed()
 }
 
 export const refrectY = <T>(matrix: T[][]) => {
