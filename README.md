@@ -35,7 +35,7 @@ export class GameRenderer implements Renderer {
 const Page = () => {
   const state = new GameState()
   const renderer = new GameRenderer(state)
-  const canvasRef = useCanvas(100, 50, renderer)
+  const { canvasRef, togglePausing } = useCanvas(100, 50, renderer)
 
   return (
     <div className="w-full">

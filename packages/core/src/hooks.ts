@@ -7,6 +7,7 @@ export const useCanvas = (
   renderer: Renderer
 ) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const pause = useRef<boolean>(false)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -35,18 +36,21 @@ export const useCanvas = (
       if (!lastTime) {
         lastTime = now
       }
-      let delta = Math.floor(now - lastTime)
 
-      // Frame skipping
-      while (delta >= 0) {
-        const diff = delta - interval
-        renderer.state.update(diff >= 0 ? interval : delta, pressedKey)
-        pressedKey = ''
-        delta = diff
+      if (!pause.current) {
+        let delta = Math.floor(now - lastTime)
+
+        // Frame skipping
+        while (delta >= 0) {
+          const diff = delta - interval
+          renderer.state.update(diff >= 0 ? interval : delta, pressedKey)
+          pressedKey = ''
+          delta = diff
+        }
+
+        renderer.blockWidth = blockWidth
+        renderer.draw(ctx)
       }
-
-      renderer.blockWidth = blockWidth
-      renderer.draw(ctx)
 
       lastTime = now
       animationFrameId = window.requestAnimationFrame(gameLoop)
@@ -65,5 +69,9 @@ export const useCanvas = (
     }
   }, [blockSizeX, blockSizeY, renderer])
 
-  return canvasRef
+  const togglePausing = () => {
+    pause.current = !pause.current
+  }
+
+  return { canvasRef, togglePausing }
 }
