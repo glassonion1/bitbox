@@ -1,6 +1,6 @@
 {
   "name": "@bitbox-js/bitbox",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "keywords": [
     "game",
@@ -12,7 +12,7 @@
   "main": "index.js",
   "scripts": {
     "build": "pnpm --parallel --filter \"./**\" build",
-    "engine": "pnpm -F \"engine\""
+    "core": "pnpm -F \"core\""
   },
   "files": [
     "packages"
