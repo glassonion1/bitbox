@@ -6,9 +6,6 @@ import { peerDependencies } from './package.json'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  test: {
-    include: ['tests/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
-  },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src')
@@ -22,8 +19,10 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [...Object.keys(peerDependencies)]
-    },
-    target: 'esnext',
-    sourcemap: true
+    }
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom'
   }
 })

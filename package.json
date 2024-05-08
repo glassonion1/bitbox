@@ -1,6 +1,6 @@
 {
   "name": "@bitbox-js/bitbox",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "keywords": [
     "game",
@@ -9,16 +9,15 @@
   "author": "glassonion1",
   "homepage": "https://github.com/glassonion1/bitbox",
   "license": "MIT",
-  "main": "index.js",
+  "files": [
+    "packages"
+  ],
   "scripts": {
     "build": "pnpm --parallel --filter \"./**\" build",
     "core": "pnpm -F \"core\""
   },
-  "files": [
-    "packages"
-  ],
   "dependencies": {
-    "@bitbox/core": "workspace:*"
+    "@bitbox-js/core": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18.3.0",
@@ -29,6 +28,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.6.0",
     "npm-run-all2": "^6.1.2",
+    "rimraf": "^5.0.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "ts-node": "^10.9.2",

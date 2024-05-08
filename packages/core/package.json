@@ -1,12 +1,22 @@
 {
   "name": "@bitbox-js/core",
-  "version": "0.0.3",
+  "version": "0.0.4",
+  "description": "",
+  "keywords": [],
+  "author": "glassonion1",
+  "homepage": "https://github.com/glassonion1/bitbox",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/glassonion1/bitbox.git",
+    "directory": "packages/core"
+  },
+  "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "require": "./dist/index.cjs.js",
       "import": "./dist/index.es.js"
     }
@@ -19,24 +29,15 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "vite",
+    "lint": "run-s lint:*",
+    "lint:eslint": "eslint . --ext .ts,.tsx --fix",
+    "lint:prettier": "prettier --write --ignore-path .gitignore './src/*.ts'",
+    "prebuild": "rimraf dist",
     "build": "run-p build:*",
     "build:scripts": "vite build",
     "build:types": "tsc && tsc-alias",
-    "test": "vitest",
-    "lint": "run-p lint:*",
-    "lint:prettier": "prettier --write .",
-    "lint:eslint": "eslint --ext \".ts,.tsx\" --fix src"
+    "test": "vitest"
   },
-  "keywords": [],
-  "author": "glassonion1",
-  "homepage": "https://github.com/glassonion1/sakura-ui",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com:glassonion1/sakura-ui.git",
-    "directory": "packages/core"
-  },
-  "license": "MIT",
   "peerDependencies": {
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
