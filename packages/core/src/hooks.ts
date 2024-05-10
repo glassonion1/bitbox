@@ -62,10 +62,10 @@ export const useCanvas = (
       pressedKey = e.key
     }
 
-    document.addEventListener('keydown', handleKeyDown, false)
+    canvas.addEventListener('keydown', handleKeyDown, false)
     return () => {
       window.cancelAnimationFrame(animationFrameId)
-      document.removeEventListener('keydown', handleKeyDown, false)
+      canvas.removeEventListener('keydown', handleKeyDown, false)
     }
   }, [blockSizeX, blockSizeY, renderer])
 
