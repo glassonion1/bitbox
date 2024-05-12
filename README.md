@@ -50,3 +50,8 @@ export default Page
 ## Example code
 These examples can be browsed on the stackblitz.
 [bitbox-sample](https://stackblitz.com/edit/bitbox-sample)
+
+## Use case
+- [Elementary cellular automaton](https://9revolution9.com/games/eca/)
+- [Tetrimimus](https://9revolution9.com/games/tetrimimus/)
+- [Pac-Boy](https://9revolution9.com/games/pac-boy/)
