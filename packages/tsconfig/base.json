@@ -3,7 +3,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
-    "lib": ["DOM", "DOM.Iterable", "ESNext", "ESNext.Array"],
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "ESNext.Array", "ESNext.String"],
     "jsx": "react-jsx",
     "useDefineForClassFields": true,
     "allowJs": false,

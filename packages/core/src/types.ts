@@ -3,7 +3,8 @@ export const Keyboard = {
   Left: 'ArrowLeft',
   Right: 'ArrowRight',
   Down: 'ArrowDown',
-  Up: 'ArrowUp'
+  Up: 'ArrowUp',
+  Space: ' '
 } as const
 export type Keyboard = (typeof Keyboard)[keyof typeof Keyboard]
 

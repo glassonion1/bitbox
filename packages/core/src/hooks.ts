@@ -4,10 +4,11 @@ import { Renderer } from './types'
 export const useCanvas = (
   blockSizeX: number,
   blockSizeY: number,
-  renderer: Renderer
+  renderer: Renderer,
+  immediatelyStart: boolean = true
 ) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const pause = useRef<boolean>(false)
+  const pause = useRef<boolean>(!immediatelyStart)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -24,6 +25,9 @@ export const useCanvas = (
     canvas.width = displayWidth * ratio
     canvas.height = displayHeight * ratio
     ctx.scale(ratio, ratio)
+
+    renderer.blockWidth = blockWidth
+    renderer.draw(ctx)
 
     // desired interval is 60fps
     const interval = 1000.0 / 60
@@ -48,7 +52,6 @@ export const useCanvas = (
           delta = diff
         }
 
-        renderer.blockWidth = blockWidth
         renderer.draw(ctx)
       }
 
